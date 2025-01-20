@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # Set working directory
-WORKDIR /home/django-crm
+WORKDIR /home/aventura-crm
 
 # Install Python and necessary tools
 RUN apt-get update && \
