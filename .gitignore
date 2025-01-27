@@ -3,7 +3,7 @@
 *.tmp
 *.pyc
 
-/pgdata
+pgdata
 
 # Ignor Pycharm system folders everywhere
 /.idea
