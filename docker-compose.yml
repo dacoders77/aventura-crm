@@ -15,7 +15,7 @@ services:
 
   db:
     image: postgres
-    container_name: bor-pg-dj
+    container_name: bor-pg-dj # Use this name in Connection/ip tab in pgadmin
     restart: always
     shm_size: 128mb
     ports:
