@@ -1,4 +1,4 @@
-import sys
+import sys, os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'j1c=6$s-dh#$ywt@(q4cm=j&0c*!0x!e-qm6k1%yoliec(15tn'
 
 # Add your hosts to the list.
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '144.202.33.65']
 
 # Database
 DATABASES = {
@@ -32,7 +32,7 @@ DATABASES = {
 
         # for PostgreSQL
          "ENGINE": "django.db.backends.postgresql",
-         'PORT': '5432',   # for PostgreSQL
+         'PORT': '5432',   # for Postgres
 
         'NAME': 'boris',
         'USER': 'bor',
@@ -153,10 +153,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATIC_ROOT = BASE_DIR / 'static' # disapble?
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media' # Works good
+
+
 
 FIXTURE_DIRS = ['tests/fixtures']
 

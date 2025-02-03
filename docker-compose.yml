@@ -8,10 +8,11 @@ services:
     tty: true
     volumes:
       - .:/home/aventura-crm # Go one level up from docker-compose.yml and mount all the dirs
+      - ./compose/nginx.conf.dist:/etc/nginx/sites-available/aventura-crm.conf
     entrypoint: /home/aventura-crm/entrypoint.sh
     mem_reservation: 1g
     ports:
-      - "8000:8000"
+      - "80:80"
 
   db:
     image: postgres
@@ -28,12 +29,12 @@ services:
       - ./pgdata:/var/lib/postgresql/data
       - ./dump:/home/dump
 
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pgadmin-dj
-    restart: always
-    ports:
-      - "80:80" # When adding new db server. In the connection tab use Host name / address: bor-db (container name, no need to use ip)
-    environment:
-      PGADMIN_DEFAULT_EMAIL: bor@bor.com # Pgadmin login
-      PGADMIN_DEFAULT_PASSWORD: 659111 # Pgadmin pass
+#  pgadmin:
+#    image: dpage/pgadmin4:latest
+#    container_name: pgadmin-dj
+#    restart: always
+#    ports:
+#      - "80:80" # When adding new db server. In the connection tab use Host name / address: bor-db (container name, no need to use ip)
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: bor@bor.com # Pgadmin login
+#      PGADMIN_DEFAULT_PASSWORD: 659111 # Pgadmin pass

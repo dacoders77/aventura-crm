@@ -13,7 +13,10 @@
     multidict==6.1.0
 
     #mysqlclient==2.2.7
+
+    # install: libpq-dev (via apt-get) otherwise error on pip -r install requirments
     psycopg2>=2.9,<3.0
+
 
 
     numpy==2.2.1
